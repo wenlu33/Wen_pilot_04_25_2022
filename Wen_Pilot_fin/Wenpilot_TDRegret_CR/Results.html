@@ -1,0 +1,37 @@
+{{ block title }}Results{{ endblock }}
+{{ block content }}
+    <table class=table style='width: auto'>
+        <tr>
+            <td>You submitted</td>
+            <td>{{ player.claim }}</td>
+        </tr>
+        <tr>
+            <td>Your match submitted</td>
+            <td>{{ other_player_claim }}</td>
+        </tr>
+        <tr>
+            <td>Winning number</td>
+            <td>{{ group.lower_claim }}</td>
+        </tr>
+        <tr>
+            <td>Your adjustment</td>
+            <td>{{ player.adjustment }}</td>
+        </tr>
+        <tr>
+            <td><strong>Thus you receive</strong></td>
+            <td><strong>{{ player.payoff }}</strong></td>
+        </tr>
+        <tr>
+            <td>{{if player.claim < other_player_claim}} You win!{{elif group.lower_claim > 40}}You could have got{{elif player.claim == other_player_claim}}You have reached the lower limit {{else}}You could have got{{endif}}</td>
+            <td>{{if player.claim < other_player_claim}} {{elif group.lower_claim > 40}}{{player.potential_max_payoff}}{{elif player.claim == other_player_claim}} {{else}}40{{endif}}</td>
+            <td>{{if player.claim < other_player_claim}} {{elif group.lower_claim > 40}}If you submitted{{elif player.claim == other_player_claim}} {{else}}If you submitted{{endif}} </td>
+            <td>{{if player.claim < other_player_claim}} {{elif group.lower_claim > 40}}{{player.potential_optimal_claim}}{{elif player.claim == other_player_claim}} {{else}}40{{endif}}</td>
+        </tr>
+
+    </table>
+
+<p><strong>Your cumulative earnings are {{player.participant.payoff}} </strong></p>
+
+    <p>{{ next_button }}</p>
+
+{{ endblock }}

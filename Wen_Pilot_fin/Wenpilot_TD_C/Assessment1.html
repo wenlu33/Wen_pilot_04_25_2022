@@ -1,0 +1,13 @@
+{{ block title }}Assessment{{ endblock }}
+{{ block content }}
+
+    <p>
+        This is an assessment to ensure your understanding of the instruction.
+Please answer each question carefully. Instruction is provided below for your reference.
+    </p>
+
+    {{ formfields }}
+
+    {{ next_button }}
+    {{ include C.INSTRUCTIONS_TEMPLATE }}
+{{ endblock }}

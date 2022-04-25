@@ -1,0 +1,31 @@
+{{ block title }}Results{{ endblock }}
+{{ block content }}
+    <table class=table style='width: auto'>
+        <tr>
+            <td>You submitted</td>
+            <td>{{ player.claim }}</td>
+        </tr>
+        <tr>
+            <td>Your match submitted</td>
+            <td>{{ other_player_claim }}</td>
+        </tr>
+        <tr>
+            <td>Winning number</td>
+            <td>{{ group.lower_claim }}</td>
+        </tr>
+        <tr>
+            <td>Your adjustment</td>
+            <td>{{ player.adjustment }}</td>
+        </tr>
+        <tr>
+            <td><strong>Thus you receive</strong></td>
+            <td><strong>{{ player.payoff }}</strong></td>
+        </tr>
+
+    </table>
+
+<p><strong>Your cumulative earnings are {{player.participant.payoff}} </strong></p>
+
+    <p>{{ next_button }}</p>
+
+{{ endblock }}
